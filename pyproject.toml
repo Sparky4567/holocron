@@ -1,0 +1,15 @@
+[project]
+name = "holocron"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.4.2",
+    "pathlib>=1.0.1",
+    "pathvalidate>=3.3.1",
+    "pip>=26.0.1",
+    "piper-tts>=1.4.1",
+    "python-dotenv>=1.2.1",
+    "sounddevice>=0.5.5",
+]
