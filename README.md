@@ -7,6 +7,7 @@ https://docs.astral.sh/uv/
 - git clone repo
 - Wait a few seconds for download to finish
 - cd into repo
+- remove .git directory to stop receiving code updates (or if you want to spin your own)
 - Run uv run main.py within the project folder
 
 ## How to enter listenning mode?
