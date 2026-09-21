@@ -21,7 +21,12 @@ https://docs.astral.sh/uv/
 - Write the content, use line breaks by pressing enter
 - Type in eof and press enter to save
 
-## How to quit app?
+## How to play a random record?
 
 - Type in 3
+- Press Enter
+
+## How to quit app?
+
+- Type in 4
 - Press Enter

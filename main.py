@@ -1,4 +1,5 @@
 import os
+import random
 from pathlib import Path
 from dotenv import dotenv_values
 from modules.speak_module.speak_module import Speaking_Module
@@ -88,6 +89,24 @@ def read_files():
     else:
         main()
 
+def play_random_record():
+    files = get_file_list()
+    if files:
+        f = random.choice(files)
+        with open(f) as single_file:
+            lines = single_file.read()
+        final_text = str(lines).replace("\n", "")
+        final_text = str(final_text.strip())
+        number = Path(f).stem
+        message = f"Reading random file number {number}."
+        print(f"\n\n{message}\n\n")
+        sp = Speaking_Module(voice_model_path)
+        sp.speak(message)
+        print(f"\n{final_text}\n\n")
+        sp.speak(final_text)
+    else:
+        print("\nNo records found ❌\n\n")
+
 def check_selection(user_input):
     try:
         match(user_input):
@@ -98,6 +117,9 @@ def check_selection(user_input):
                 create_next_numbered_file(main_reading_dir)
                 main()
             case 3:
+                play_random_record()
+                main()
+            case 4:
                 quit()
             case _:
                 print("\nOut of bounds ❌\n\n")
@@ -110,7 +132,7 @@ def check_selection(user_input):
         quit()
 
 def main():
-    user_input = input("Write in your number:\n\nType in:\n\n1. Launch recordings.\n\n2. Create a record.\n\n3. Close.\n\n")
+    user_input = input("Write in your number:\n\nType in:\n\n1. Launch recordings.\n\n2. Create a record.\n\n3. Play random record.\n\n4. Close.\n\n")
     user_input = str(user_input).lower().strip()
     user_input = int(user_input)
     if (user_input.is_integer()):
